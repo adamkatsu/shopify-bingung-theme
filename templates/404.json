@@ -1,0 +1,10 @@
+{
+    "name": "Template 404",
+    "wrapper": "section#404-template.h-screen[template-attribute='Hello']",
+    "sections": {
+        "template": {
+            "type": "template-404"
+        }
+    },
+    "order": ["template"]
+}
