@@ -1,5 +1,6 @@
 {
     "name": "Template Blog",
+    "wrapper": "section#blog-template.max-w-screen-xl[template-attribute='Hello']",
     "sections": {
         "template": {
             "type": "template-blog"

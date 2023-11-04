@@ -1,27 +1,38 @@
-{% paginate blog.articles by section.settings.number_of_blog_post %}
-    {% for article in blog.articles %}
-        <div class="flex flex-col justify-start items-start gap-2">
-            {% if article.image != blank %}
-                <img src="{{ article.image | img_url: 'medium' }}" alt="{{ article.image.alt }}">
-            {% else %}
-                {{ 'image' | placeholder_svg_tag: 'w-20' }}
-            {% endif %}
-            <h1>{{ article.title }}</h1>
-            {% if section.settings.enable_author %}
-                <span>{{ article.author }}</span>
-            {% endif %}
-            {% if section.settings.enable_date %}
-                <span>{{ article.published_at | date: '%Y-%m-%d'}}</span>
-            {% endif %}
+<div class="py-8">
+    {% paginate blog.articles by section.settings.number_of_blog_post %}
 
-            {% if article.excerpt.size > 0 %}
+        <h1 class="text-center text-3xl">{{ blog.title }}</h1>
+
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {% for article in blog.articles %}
+                    <div class="flex flex-col justify-start items-start gap-2 py-6 px-3 bg-white shadow-xl rounded-lg">
+                        {% if article.image != blank %}
+                            <img src="{{ article.image | img_url: 'medium' }}" class="w-full h-96 object-cover object-top" alt="{{ article.image.alt }}">
+                        {% else %}
+                            {{ 'image' | placeholder_svg_tag: 'w-full h-96 object-cover object-top' }}
+                        {% endif %}
+                        <h2 class="text-4xl my-3 font-medium">{{ article.title }}</h2>
+                        {% if section.settings.enable_author %}
+                            <span class="text-2xl">{{ article.author }}</span>
+                        {% endif %}
+                        {% if section.settings.enable_date %}
+                            <span class="text-xs my-2">{{ article.published_at | date: '%Y-%m-%d'}}</span>
+                        {% endif %}
             
-            {% else %}
-                <p>{{ article.content | strip_html | truncatewords: 18 }}</p>        
-            {% endif %}
+                        {% if article.excerpt.size > 0 %}
+                            <p>{{article.excerpt | strip_html | truncatewords: 18 }}</p>
+                        {% else %}
+                            <p>{{ article.content | strip_html | truncatewords: 18 }}</p>        
+                        {% endif %}
+
+                        <a href="{{ article.url }}" class="font-medium my-3 text-blue-600 hover: text-blue-800">{{ section.settings.blog_read_more}}</a>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
-    {% endfor %}
-{% endpaginate %}
+    {% endpaginate %}
+</div>
 
 {% schema %}
 {
@@ -47,6 +58,12 @@
             "id": "enable_date",
             "default": true,
             "label": "Display Published Date"
+        },
+        {
+            "type": "text",
+            "id": "blog_read_more",
+            "default": "Read More",
+            "label": "Read More Label"
         }
     ]
 }
