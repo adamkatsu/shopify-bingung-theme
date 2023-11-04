@@ -1,0 +1,53 @@
+{% paginate blog.articles by section.settings.number_of_blog_post %}
+    {% for article in blog.articles %}
+        <div class="flex flex-col justify-start items-start gap-2">
+            {% if article.image != blank %}
+                <img src="{{ article.image | img_url: 'medium' }}" alt="{{ article.image.alt }}">
+            {% else %}
+                {{ 'image' | placeholder_svg_tag: 'w-20' }}
+            {% endif %}
+            <h1>{{ article.title }}</h1>
+            {% if section.settings.enable_author %}
+                <span>{{ article.author }}</span>
+            {% endif %}
+            {% if section.settings.enable_date %}
+                <span>{{ article.published_at | date: '%Y-%m-%d'}}</span>
+            {% endif %}
+
+            {% if article.excerpt.size > 0 %}
+            
+            {% else %}
+                <p>{{ article.content | strip_html | truncatewords: 18 }}</p>        
+            {% endif %}
+        </div>
+    {% endfor %}
+{% endpaginate %}
+
+{% schema %}
+{
+    "name": "Blog",
+    "settings": [
+        {
+            "type": "range",
+            "id": "number_of_blog_post",
+            "step": 1,
+            "min": 1,
+            "max": 6,
+            "label": "Blog posts per page",
+            "default": 3
+        },
+        {
+            "type": "checkbox",
+            "id": "enable_author",
+            "default": true,
+            "label": "Display Author Name"
+        },
+        {
+            "type": "checkbox",
+            "id": "enable_date",
+            "default": true,
+            "label": "Display Published Date"
+        }
+    ]
+}
+{% endschema %}

@@ -1,5 +1,5 @@
 {
-    "name": "Article Template",
+    "name": "Template Article",
     "wrapper": "section#article-template.max-w-screen-xl",
     "sections": {
         "template": {
