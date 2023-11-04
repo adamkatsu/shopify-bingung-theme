@@ -62,9 +62,10 @@
                     {% endfor %}
 
                     <div class="flex flex-row justify-between gap-2">
-                        {% if paginate.pages > 1 %}
-                            {{ paginate | default_pagination }}
-                        {% endif %}
+                        <div class="max-w-6xl mx-auto">
+                            {% render 'pagination', pagination: paginate %}
+                        </div>
+                        
                     </div>
                 {% endpaginate %}
             </div>
