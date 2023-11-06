@@ -1,0 +1,12 @@
+{
+    "name": "Page - History",
+    "wrapper": "section",
+    "sections": {
+        "template": {
+            "type": "template-page"
+        }
+    },
+    "order": [
+        "template"
+    ]
+}
