@@ -1,4 +1,9 @@
 <div class="flex flex-col items-center my-8">
+    
+    {% if section.settings.title != blank %}
+        <h1 class="text-3xl font-medium my-8 md:my-16">{{ section.settings.title }}</h1>
+    {% endif %}
+
     {% form 'contact'%}
         {% if form.errors %}
             <div class="border p-5">
@@ -63,7 +68,11 @@
         }
     ],
     "settings": [
-        
-        ]
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Form Title"
+        }    
+    ]
 }
 {% endschema %}
