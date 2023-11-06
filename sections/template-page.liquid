@@ -1,0 +1,16 @@
+<h1>{{ section.settings.page-title }}</h1>
+<div class="">{{ page.content }}</div>
+
+{% schema %}
+{
+    "name": "Page",
+    "settings": [
+        {
+            "type": "text",
+            "id": "page-title",
+            "label": "Page Title",
+            "default": "Page Title"
+        }
+        ]
+}
+{% endschema %}
