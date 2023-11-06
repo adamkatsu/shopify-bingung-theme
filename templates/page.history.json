@@ -6,9 +6,25 @@
       "settings": {
         "page-title": "asdfasdf"
       }
+    },
+    "f749bf5f-08c4-42a6-93b8-bc466b745be3": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Title",
+        "featured_collection": "all-products",
+        "products_to_show": 4
+      }
+    },
+    "367b1413-80fd-49f4-9df1-b0580cf1190a": {
+      "type": "contact-form",
+      "settings": {
+        "title": ""
+      }
     }
   },
   "order": [
-    "template"
+    "template",
+    "f749bf5f-08c4-42a6-93b8-bc466b745be3",
+    "367b1413-80fd-49f4-9df1-b0580cf1190a"
   ]
 }
