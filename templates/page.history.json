@@ -1,12 +1,16 @@
 {
     "name": "Page - History",
-    "wrapper": "section",
+    "wrapper": "section#history",
     "sections": {
         "template": {
             "type": "template-page"
+        },
+        "collection": {
+            "type": "featured-collection"
         }
     },
     "order": [
-        "template"
+        "template",
+        "collection"
     ]
 }
