@@ -1,12 +1,20 @@
 {
-    "name": "Template Page",
-    "wrapper": "section#page",
-    "sections": {
-        "template": {
-            "type": "template-page"
-        }
+  "wrapper": "section#page",
+  "sections": {
+    "template": {
+      "type": "template-page",
+      "settings": {
+        "page-title": "Page Title"
+      }
     },
-    "order": [
-        "template"
-    ]
+    "556e029c-8f99-40bc-8332-da9b8f254167": {
+      "type": "contact-form",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "template",
+    "556e029c-8f99-40bc-8332-da9b8f254167"
+  ]
 }
