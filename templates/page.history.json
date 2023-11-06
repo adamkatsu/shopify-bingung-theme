@@ -1,12 +1,14 @@
 {
-    "name": "Page - History",
-    "wrapper": "section",
-    "sections": {
-        "template": {
-            "type": "template-page"
-        }
-    },
-    "order": [
-        "template"
-    ]
+  "wrapper": "section",
+  "sections": {
+    "template": {
+      "type": "template-page",
+      "settings": {
+        "page-title": "asdfasdf"
+      }
+    }
+  },
+  "order": [
+    "template"
+  ]
 }
