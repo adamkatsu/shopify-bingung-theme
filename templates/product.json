@@ -1,0 +1,15 @@
+{
+    "name": "Template Product",
+    "wrapper": "section#template-product",
+    "sections": {
+        "template": {
+            "type": "template-product",
+            "settings": {
+                "": ""
+            }
+        }
+    },
+    "order": [
+        "template"
+    ]
+}
