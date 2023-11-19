@@ -144,3 +144,45 @@
         }
     })
 </script>
+
+{% schema %}
+{
+    "name": "Product",
+    "blocks": [
+        {
+            "type": "vendor",
+            "name": "Vendor",
+            "limit": 1
+        },
+        {
+            "type": "title",
+            "name": "Title",
+            "limit": 1
+        },
+        {
+            "type": "variant_selector",
+            "name": "Variant Selector",
+            "limit": 1
+        },
+        {
+            "type": "quantity",
+            "name": "Quantity",
+            "limit": 1
+        },
+        {
+            "type": "description",
+            "name": "Description",
+            "limit": 1
+        },
+        {
+            "type": "checkout_button",
+            "name": "Checkout Button",
+            "limit": 1
+        },
+        
+    ],
+    "settings": [
+        
+        ]
+}
+{% endschema %}
