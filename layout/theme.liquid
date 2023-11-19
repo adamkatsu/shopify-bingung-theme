@@ -19,5 +19,18 @@
     <main role="main">
       {{ content_for_layout }}
     </main>
+
+  <script>
+    const searchBar = document.getElementById('search-bar')
+
+    document.getElementById('search-close').addEventListener('click', () => {
+        searchBar.style.display = 'none';
+        console.log('open ok')
+    });
+    document.getElementById('search-open').addEventListener('click', () => {
+        searchBar.style.display = 'block';
+        console.log('close ok')
+    });
+</script>
   </body>
 </html>
