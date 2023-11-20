@@ -13,6 +13,7 @@
     {{ 'application.js' | asset_url | script_tag }}
 
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
   </head>
   <body>
     {% section 'header' %}
@@ -20,17 +21,6 @@
       {{ content_for_layout }}
     </main>
 
-  <script>
-    const searchBar = document.getElementById('search-bar')
-
-    document.getElementById('search-close').addEventListener('click', () => {
-        searchBar.style.display = 'none';
-        console.log('open ok')
-    });
-    document.getElementById('search-open').addEventListener('click', () => {
-        searchBar.style.display = 'block';
-        console.log('close ok')
-    });
-</script>
+  {% comment %} <script src="../assets/application.js"></script> {% endcomment %}
   </body>
 </html>

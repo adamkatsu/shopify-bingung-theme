@@ -137,6 +137,23 @@
   </div>
 </div>
 
+<script>
+  // Search Menu
+  const searchBar = document.getElementById('search-bar');
+  const searchOpen = document.getElementById('search-open');
+  const searchClose = document.getElementById('search-close');
+
+  searchOpen.addEventListener('click', () => {
+      searchBar.style.display = 'block';
+      console.log('close ok');
+  });
+
+  searchClose.addEventListener('click', () => {
+      searchBar.style.display = 'none';
+      console.log('open ok');
+  });
+</script>
+
 {% schema %}
     {
         "name": "Header",
