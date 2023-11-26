@@ -20,12 +20,17 @@
                     <label for="last_name" class="sr-only">Last Name</label>
                     <input type="text" name="customer[last_name]" id="last_name" autocomplete="family-name" class="relative block w-full px-3 py-2 border" placeholder="Last Name">
                 </div>
+                {% comment %}
+                    Custom Input Fields
+                {% endcomment %}
+                <div class="my-2">
+                    <label for="birthday" class="sr-only">Birthday</label>
+                    <input type="date" name="customer[note][birthday]" id="birthday" class="relative block w-full px-3 py-2 border">
+                </div>
                 <div class="my-2">
                     <label for="email-address" class="sr-only">Email address</label>
                     <input type="email" name="customer[email]" id="email-address" autocomplete="email" class="relative block w-full px-3 py-2 border" placeholder="Email Address">
                 </div>
-
-                
                 <div class="my-2">
                     <label for="password" class="sr-only">Password</label>
                     <input type="password" name="customer[password]" id="password" autocomplete="new-password" class="relative block w-full px-3 py-2 border" placeholder="Password">
