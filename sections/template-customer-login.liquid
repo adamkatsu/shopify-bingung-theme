@@ -25,9 +25,9 @@
                 {% endif %}
 
                 <div class="my-2 text-sm">
-                    <a href="#" id="forgot-password" class="underline text-gray-500 hover:text-gray-900">
+                    <span id="forgot-password" class="underline text-gray-500 hover:text-gray-900">
                         Forgot your password?
-                    </a>
+                    </span>
                 </div>
                 <div>
                     <button type="submit" class="relative w-full py-2 px-4 text-sm font-medium text-white bg-gray-600 hover:bg-gray-900"> Sign In</button>
@@ -36,7 +36,7 @@
         </div>
     </div>
 
-    <div id="form-recover" class="max-w-md w-full space-y-8" style="display: none !important">
+    <div id="form-recover" class="max-w-md w-full space-y-8" style="display: none">
         <div>
             <h1 class="text-center text-3xl font-bold mt-6">Recover Your Password</h1>
         </div>
@@ -67,16 +67,18 @@
     </div>
 </div>
 
+
 <script>
 
     document.getElementById('forgot-password').addEventListener('click', () => {
-        document.getElementById('form-recover').style.display = 'block !important';
-        document.getElementById('form-login').style.display = 'none !important';
+        document.getElementById('form-recover').style.display = 'block';
+        document.getElementById('form-login').style.display = 'none';
+        console.log('click ok')
     })
     
     document.getElementById('return-login').addEventListener('click', () => {
-        document.getElementById('form-login').style.display = 'block !important';
-        document.getElementById('form-recover').style.display = 'none !important';
+        document.getElementById('form-login').style.display = 'block';
+        document.getElementById('form-recover').style.display = 'none';
     })
 
 </script>
