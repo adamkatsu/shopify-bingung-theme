@@ -867,6 +867,11 @@ video {
   width: 50%;
 }
 
+.w-max {
+  width: -moz-max-content;
+  width: max-content;
+}
+
 .max-w-2xl {
   max-width: 42rem;
 }
