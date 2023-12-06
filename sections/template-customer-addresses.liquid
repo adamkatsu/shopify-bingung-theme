@@ -139,7 +139,7 @@
                             </div>
 
                             <div class="flex flex-row gap-2">
-                                <button id="address-modal-open" class="w-full text-xs text-white bg-gray-700 hover:bg-gray-900 font-medium py-2">Edit</button>
+                                <button id="address-modal-open" class="w-full text-xs text-white bg-gray-700 hover:bg-gray-900 font-medium py-2 address-modal-open">Edit</button>
                                 <button class="w-full text-xs font-medium text-gray-700 border py-2">Delete</button>
                             </div>
                         </div>
@@ -152,7 +152,7 @@
 
 <script>
 
-const openModal = document.getElementById('address-modal-open');
+const openModal = document.querySelectorAll('address-modal-open');
 const closeModal = document.getElementById('address-modal-close');
 const addressModal = document.getElementById('address-modal');
 
