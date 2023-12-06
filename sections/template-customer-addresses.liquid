@@ -4,6 +4,16 @@
         <button type="button" class="text-white font-medium bg-gray-700 hover:bg-gray-900 px-6 py-2">Create New Address</button>
         <a href="{{ routes.account_url }}" class="text-blue-600 hover:text-blue-800 font-medium underline">Back to Account</a>
     </div>
+
+    {% comment %} Edit Address Modal {% endcomment %}
+    <div id="address-modal" class="h-full w-full fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto z-50 hidden">
+        <div class="relative max-w-md mx-auto bg-white border top-20 p-4">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-lg font-medium">New Address</h2>
+                <button id="address-modal-close" class="text-gray-500">{% render 'icon-close' %}</button>
+            </div>
+        </div>
+    </div>
     
     <div>
         {% paginate customer.addresses by 3 %}
@@ -20,7 +30,7 @@
                             </div>
 
                             <div class="flex flex-row gap-2">
-                                <button class="w-full text-xs text-white bg-gray-700 hover:bg-gray-900 font-medium py-2">Edit</button>
+                                <button id="address-modal-open" class="w-full text-xs text-white bg-gray-700 hover:bg-gray-900 font-medium py-2">Edit</button>
                                 <button class="w-full text-xs font-medium text-gray-700 border py-2">Delete</button>
                             </div>
                         </div>
@@ -30,3 +40,19 @@
         {% endpaginate %}
     </div>
 </div>
+
+<script>
+
+const openModal = document.getElementById('address-modal-open');
+const closeModal = document.getElementById('address-modal-close');
+const addressModal = document.getElementById('address-modal');
+
+openModal.addEventListener('click', () => {
+    addressModal.classList.remove('hidden')
+})
+closeModal.addEventListener('click', () => {
+    addressModal.classList.add('hidden')
+})
+
+
+</script>
