@@ -156,12 +156,15 @@ const openModal = document.querySelectorAll('address-modal-open');
 const closeModal = document.getElementById('address-modal-close');
 const addressModal = document.getElementById('address-modal');
 
-openModal.addEventListener('click', () => {
+openModal.forEach((btn) => {
+    btn.addEventListener('click', () => {
     addressModal.classList.remove('hidden')
-})
+    });
+});
+
 closeModal.addEventListener('click', () => {
-    addressModal.classList.add('hidden')
-})
+    addressModal.classList.add('hidden');
+});
 
 
 </script>
