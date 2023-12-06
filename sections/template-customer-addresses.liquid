@@ -6,7 +6,7 @@
     </div>
 
     {% comment %} Edit Address Modal {% endcomment %}
-    <div id="address-modal" class="h-full w-full fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto z-50 hidden">
+    <div id="address-modal" class="h-full w-full fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto z-50">
         <div class="relative max-w-md mx-auto bg-white border top-20 p-4">
             <div class="flex items-center justify-between mb-4">
                 <h2 class="text-lg font-medium">New Address</h2>
@@ -47,12 +47,12 @@ const openModal = document.getElementById('address-modal-open');
 const closeModal = document.getElementById('address-modal-close');
 const addressModal = document.getElementById('address-modal');
 
-openModal.addEventListener('click', () => {
-    addressModal.classList.remove('hidden')
-})
-closeModal.addEventListener('click', () => {
-    addressModal.classList.add('hidden')
-})
+// openModal.addEventListener('click', () => {
+//     addressModal.classList.remove('hidden')
+// })
+// closeModal.addEventListener('click', () => {
+//     addressModal.classList.add('hidden')
+// })
 
 
 </script>
