@@ -1,7 +1,7 @@
 <div class="max-w-6xl mx-auto px-4 py-12">
     <div class="flex flex-col md:flex-row items-center justify-between my-5 gap-4">
         <h1 class="text-2xl font-bold text-gray-700">Addresses</h1>
-        <button type="button" class="text-white font-medium bg-gray-700 hover:bg-gray-900 px-6 py-2">Create New Address</button>
+        <button type="button" id="new-address" class="text-white font-medium bg-gray-700 hover:bg-gray-900 px-6 py-2">Create New Address</button>
         <a href="{{ routes.account_url }}" class="text-blue-600 hover:text-blue-800 font-medium underline">Back to Account</a>
     </div>
 
@@ -81,6 +81,7 @@
                         id="address_country_{{ form.id }}" 
                         value="{{ form.country }}"
                         class="w-full text-gray-700 border px-3 py-3 focus:outline-none"
+                        data-country-selector
                     >
                     {{ all_country_option_tags }}
                     </select>
@@ -155,6 +156,7 @@
 const openModal = document.querySelectorAll('.address-modal-open');
 const closeModal = document.getElementById('address-modal-close');
 const addressModal = document.getElementById('address-modal');
+const newAddress = document.getElementById('new-address');
 
 openModal.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -165,6 +167,50 @@ openModal.forEach((btn) => {
 closeModal.addEventListener('click', () => {
     addressModal.classList.add('hidden');
 });
+newAddress.addEventListener('click', () => {
+    addressModal.classList.remove('hidden');
+});
 
+
+class customerAddress {
+    constructor() {
+        this.initCustomerAddress();
+    }
+
+    initCustomerAddress() {
+        const allAddressesSelector = document.querySelectorAll('select[data-country-selector]');
+        if(allAddressesSelector.length < 1) {
+            return;
+        } else {
+            // console.log(allAddressesSelector)
+
+            allAddressesSelector.forEach((select) => {
+                let selectedCountry = this.getSelectedCountry(select);
+
+                if(!selectedCountry) {
+                    return;
+                }
+            })
+        }
+
+        getSelectedCountry(select) {
+            let option;
+            let selectedOption;
+            for(let i = 0; index < select.options.length; index++) {
+                option = select.option[i];
+
+                if(option.value === select.getAttribute('value')) {
+                    selectedOption = option;
+                    selectedOption.setAttribute('selected', 'selected');
+                    break;
+                }
+            }
+
+            return selectedOption;
+        }
+    }
+}
+
+const customerAddress = new CustomerAddress();
 
 </script>
