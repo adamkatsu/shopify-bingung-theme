@@ -82,6 +82,7 @@
                         value="{{ form.country }}"
                         class="w-full text-gray-700 border px-3 py-3 focus:outline-none"
                         data-country-selector
+                        data-id="{{ form.id }}"
                     >
                     {{ all_country_option_tags }}
                     </select>
@@ -175,6 +176,7 @@ newAddress.addEventListener('click', () => {
 class customerAddress {
     constructor() {
         this.initCustomerAddress();
+        this.customerAddressesSelector();
     }
 
     initCustomerAddress() {
@@ -190,14 +192,38 @@ class customerAddress {
                 if(!selectedCountry) {
                     return;
                 }
+
+                let provinces = selectedCountry.dataset.provinces;
+                let arrayOfProvince = JSON.parse(provinces);
+
+                let provinceSelector = document.getElementById(`address_province_${select.dataset.id}`);
+
+                if(arrayOfProvince.length < 1) {
+                    provinceSelector.setAttribute('disabled', 'disabled');
+                } else {
+                    provinceSelector.removeAttribute('disabled');
+                }
+
+                provinceSelector.innerHTML = '';
+                let options = '';
+                for(let i = 0; i < arrayOfProvince.length; i ++) {
+                    if(arrayOfProvince[i][0] === provinceSelector.getAttribute('value')) {
+                        options += `<option value="${arrayOfProvince[i][0]}" selected>${arrayOfProvince[i][0]}</option>`;
+                    } else {
+                        options += `<option value="${arrayOfProvince[i][0]}">${arrayOfProvince[i][0]}</option>`
+                    }
+                }
+
+                provinceSelector.innerHTML = options;
             })
         }
-
-        getSelectedCountry(select) {
+    }
+    getSelectedCountry(select) {
             let option;
             let selectedOption;
+
             for(let i = 0; index < select.options.length; index++) {
-                option = select.option[i];
+                option = select.options[i];
 
                 if(option.value === select.getAttribute('value')) {
                     selectedOption = option;
@@ -208,7 +234,37 @@ class customerAddress {
 
             return selectedOption;
         }
+
+    customerAddressesSelector() {
+        const addressesSelector = document.querySelectorAll('select[data-country-selector]');
+
+        if(addressesSelector.length < 1) {
+            return;
+        }
+
+        addressesSelector.forEach(select => {
+            select.addEventListener('change', function(e) {
+                let provinces = this.options[this.selectedIndex].dataset.provinces;
+
+                let arrayOfProvince = JSON.parse(provinces);
+
+                let provinceSelector = document.getElementById(`address_province_${this.dataset.id}`);
+
+                if(arrayOfProvince.length < 1) {
+                    provinceSelector.setAttribute('disabled', 'disabled');
+                } else {
+                    provinceSelector.removeAttribute('disabled');
+                }
+
+                provinceSelector.innerHTML = '';
+                let options = '';
+                for(let i = 0; i < arrayOfProvince.length; i++) {
+                    options += `<option value="${arrayOfProvince[i][0]}" selected>${arrayOfProvince[i][0]}</option`
+                }
+            })
+        })
     }
+
 }
 
 const customerAddress = new CustomerAddress();
