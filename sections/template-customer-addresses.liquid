@@ -118,6 +118,11 @@
                     >
                 </div>
 
+                <div class="mb-4">
+                    {{ form.set_as_default_checkbox }}
+                    <label for="address_default_address_{{ form.id }}" class="uppercase text-gray-700 text-xs font-medium mb-2">Set as Default Address</label>
+                </div>
+
                 <div class="flex flex-row gap-2">
                     <button type="submit" class="w-full font-medium-text-white bg-gray-700 hover:bg-gray-900 px-4 py-2">Create Address</button>
                     <button type="reset" class="w-full font-medium text-gray-700 border border-gray-700 px-4 py-2">Cancel</button>
@@ -131,7 +136,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-12 p-4 md:p-12">
                 {% for address in customer.addresses %}
                     <div class="">
-                        <div class="relative flex flex-col text-center border p-2">
+                        <div data-id="{{ address.id }}" class="relative flex flex-col text-center border p-2">
                             {% if address == customer.default_address %}
                                 <span class="text-xs font-medium text-black bg-green-700 px-4 py-2 border">Default</span>
                             {% endif %}
@@ -260,7 +265,7 @@
 
                                     <div class="mb-4">
                                         {{ form.set_as_default_checkbox }}
-                                        <label for="address_default_address{{ form.id }}" class="uppercase text-gray-700 text-xs font-medium mb-2">Set as Default Address</label>
+                                        <label for="address_default_address_{{ form.id }}" class="uppercase text-gray-700 text-xs font-medium mb-2">Set as Default Address</label>
                                     </div>
 
                                     <div class="flex flex-row gap-2">
