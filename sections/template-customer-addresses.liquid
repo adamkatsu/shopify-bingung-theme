@@ -138,7 +138,7 @@
                     <div class="">
                         <div data-id="{{ address.id }}" class="relative flex flex-col text-center border p-2">
                             {% if address == customer.default_address %}
-                                <span class="text-xs font-medium text-black bg-green-700 px-4 py-2 border">Default</span>
+                                <span class="text-xs font-medium text-white bg-green-700 px-4 py-2 border">Default</span>
                             {% endif %}
 
                             <div class="my-8 h-full">
@@ -155,7 +155,7 @@
                             <div class="relative max-w-md mx-auto bg-white border top-20 bottom-20 p-4">
                                 <div class="flex items-center justify-between mb-4">
                                     <h2 class="text-lg font-medium">Edit Address</h2>
-                                    <button id="edit-address-close" class="text-gray-500">{% render 'icon-close' %}</button>
+                                    <button class="text-gray-500 edit-address-close">{% render 'icon-close' %}</button>
                                 </div>
 
                                 {% form 'customer_address', address %}
@@ -286,21 +286,24 @@
 
 const openModal = document.querySelectorAll('.address-modal-open');
 const closeModal = document.getElementById('address-modal-close');
-const closeAddress = document.getElementById('edit-address-close');
+const closeAddress = document.querySelectorAll('.edit-address-close');
 const addressModal = document.getElementById('address-modal');
 const newAddress = document.getElementById('new-address');
 const editAddress = document.getElementById('edit-address');
 
 openModal.forEach((btn) => {
     btn.addEventListener('click', () => {
-    editAddress.classList.remove('hidden')
+        btn.parentElement.parentElement.nextElementSibling.classList.remove('hidden');
+    });
+});
+
+closeAddress.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        btn.parentElement.parentElement.parentElement.classList.add('hidden');
     });
 });
 
 closeModal.addEventListener('click', () => {
-    addressModal.classList.add('hidden');
-});
-closeAddress.addEventListener('click', () => {
     editAddress.classList.add('hidden');
 });
 newAddress.addEventListener('click', () => {
