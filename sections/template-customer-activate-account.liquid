@@ -2,7 +2,36 @@
     <div class="max-w-md w-full space-y-8">
         <div>
             <h1 class="mt-6 text-center text-3xl font-bold text-gray-700">Activate Account</h1>
-            <p class="mt-4">Create Your Password to Activate Your Account</p>
+            <p class="mt-4 text-center">Create Your Password to Activate Your Account</p>
         </div>
+        <div class="">
+            {% form 'activate_customer_password', class:'space-y-4', id: 'activate_account_form' %}
+                <div class="">
+                    <label for="password">Password</label>
+                    <input type="password" 
+                    name="customer[password]" 
+                    id="password"
+                    placeholder="New Password"
+                    class="relative block w-full px-3 py-2 border placeholder-gray-300 text-gray-700"
+                    autocomplete="new-password"
+                    >
+                </div>
+                <div class="">
+                    <label for="confirm_password">Confirm Password</label>
+                    <input type="password" 
+                    name="customer[password_confirmation]" 
+                    id="confirm_password"
+                    placeholder="Confirm Password"
+                    class="relative block w-full px-3 py-2 border placeholder-gray-300 text-gray-700"
+                    autocomplete="new-password"
+                    >
+                </div>
+
+                <div class="block md:flex">
+                    <button type="submit" class="w-full border py-2 px-4 text-sm font-medium text-white bg-gray-700 hover:bg-gray-900">Activate Account</button>
+                </div>
+            {% endform %}
+        </div>
+
     </div>
 </div>
