@@ -147,8 +147,15 @@
 
                             <div class="flex flex-row gap-2">
                                 <button id="address-modal-open" class="w-full text-xs text-white bg-gray-700 hover:bg-gray-900 font-medium py-2 address-modal-open">Edit</button>
-                                <button class="w-full text-xs font-medium text-gray-700 border py-2">Delete</button>
+                                <button 
+                                    class="w-full text-xs font-medium text-gray-700 border py-2"
+                                    data-url="{{ address.url }}"
+                                    data-delete-address
+                                >Delete</button>
                             </div>
+                            <form method="post" action="{{ address.url }}">
+                                <input type="hidden" name="_method" value="delete">
+                            </form>
                         </div>
 
                         <div id="edit-address" class="h-full w-full fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto z-50 hidden">
@@ -316,6 +323,28 @@ class CustomerAddress {
     constructor() {
         this.initCustomerAddress();
         this.customerAddressesSelector();
+        this.initDeleteAddressButtons();
+    }
+
+    initDeleteAddressButtons() {
+        const deleteButtons = document.querySelectorAll('button[data-delte-address]');
+
+        if(deleteButtons.length < 1) {
+            return;
+        } else {
+            deleteButtons.forEach((btn) => {
+                btn.add('click', () => {
+                    let url = this.dataset.url
+
+                    let confirmation = window.confirm('Delete Address???');
+
+                    if(confirmation) {
+                        document.querySelector(`form[action='${url}']`).submit();
+                    }
+
+                })
+            })
+        }
     }
 
     initCustomerAddress() {
