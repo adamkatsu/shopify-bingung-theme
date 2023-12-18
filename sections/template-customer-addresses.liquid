@@ -334,7 +334,8 @@ class CustomerAddress {
         } else {
             deleteButtons.forEach((btn) => {
                 btn.addEventListener('click', () => {
-                    let url = this.dataset.url
+                    let url = this.dataset.url;
+                    console.log(document.querySelector(`form[action='${url}']`))
 
                     let confirmation = window.confirm('Delete Address???');
 
